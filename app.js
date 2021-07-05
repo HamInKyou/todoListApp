@@ -10,8 +10,7 @@ const USERNAME_KEY = "username";
 function onLoginSubmit(event) {
   event.preventDefault(); //event에 대한 브라우저의 기본 동작을 막아준다! (submit -> 새로고침)
   loginForm.classList.add(HIDDEN_CLASSNAME); //form 숨기기
-  const username = nameInput.value; //input으로 받은 유저의 이름을 저장
-  localStorage.setItem(USERNAME_KEY, username); //휘발성으로 사라지는 username을 localStorage에 저장해서 브라우저에 남게!
+  localStorage.setItem(USERNAME_KEY, nameInput.value); //휘발성으로 사라지는 username을 localStorage에 저장해서 브라우저에 남게!
   paintGreetings();
 }
 
