@@ -7,10 +7,12 @@
     <title>Todo List App</title>
 </head>
 <body>
-    <div id="login-form">
-        <input type="text" placeholder="이름이 무엇인가요?" />
+    <form id="login-form">
+				<!-- input 태그에 유효성 검사를 걸어놔도 그냥 걸어놓으면 먹히지 않음. -->
+				<!-- form 태그로 감싸놔야지 input에 걸어놓은 유효성 검사가 걸림! -->
+        <input required maxlength="15" type="text" placeholder="이름이 무엇인가요?" />
         <button>로그인</button>
-    </div>
+    </form>
     <script src="app.js"></script>
 </body>
 </html>
