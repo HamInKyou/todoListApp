@@ -2,6 +2,13 @@ const toDoForm = document.querySelector("#todo-form");
 const toDoInput = toDoForm.querySelector("input");
 const toDoList = document.querySelector("#todo-list");
 
+const toDos = [];
+
+function saveToDos() {
+  //오직 toDos 배열을 localStorage에 저장하는 역할만 하는 함수!
+  localStorage.setItem("toDos", JSON.stringify(toDos));
+}
+
 function deleteToDo(event) {
   //이벤트에 대해, 인자로 명시한 event에서 이벤트에 대한 정보를 얻어올 수 있다.
   //event.target은 그 이벤트가 발생한 html요소를 가리켜준다.
@@ -31,7 +38,9 @@ function handleToDoSubmit(event) {
   const newTodo = toDoInput.value;
   toDoInput.value = "";
 
+  toDos.push(newTodo); //toDos 배열 끝에 새로운 todo를 추가하자.
   paintToDo(newTodo); //저장한 toDo 화면에 그려주기
+  saveToDos();
 }
 
 toDoForm.addEventListener("submit", handleToDoSubmit);
