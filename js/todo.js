@@ -2,11 +2,12 @@ const toDoForm = document.querySelector("#todo-form");
 const toDoInput = toDoForm.querySelector("input");
 const toDoList = document.querySelector("#todo-list");
 
-const toDos = [];
+const TODOS_KEY = "toDos";
+let toDos = [];
 
 function saveToDos() {
   //오직 toDos 배열을 localStorage에 저장하는 역할만 하는 함수!
-  localStorage.setItem("toDos", JSON.stringify(toDos));
+  localStorage.setItem(TODOS_KEY, JSON.stringify(toDos));
 }
 
 function deleteToDo(event) {
@@ -44,3 +45,11 @@ function handleToDoSubmit(event) {
 }
 
 toDoForm.addEventListener("submit", handleToDoSubmit);
+
+const savedToDos = localStorage.getItem(TODOS_KEY); //localStorage에서 저장된 toDoList를 들고오자
+
+if (savedToDos) {
+  const parsedToDos = JSON.parse(savedToDos); //저장된 String을 array꼴로 되바꾸어주자
+  toDos = parsedToDos; //새로고침했을 때 빈 toDos 배열에서 시작하는게 아니라, localStorage에 저장되었던 배열로 초기화한 다음 시작하게 하자!
+  parsedToDos.forEach((toDo) => paintToDo(toDo)); //위에서 이미 만든 toDo를 그리는 함수를 각 toDo마다 실행해주자!
+}
