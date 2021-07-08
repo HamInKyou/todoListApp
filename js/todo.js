@@ -15,7 +15,12 @@ function deleteToDo(event) {
   //event.target은 그 이벤트가 발생한 html요소를 가리켜준다.
   //html요소.parentElement는 그 요소를 감싸는 부모요소를 가리킨다!
   const li = event.target.parentElement;
+
+  //삭제하고싶은 id랑 일치하는 toDo를 toDos에서 찾아 제외한다.
+  // html에서 받아온 li의 id는 String 타입이므로, number 타입으로 바꿔줘야한다.,
+  toDos = toDos.filter((toDo) => toDo.id !== parseInt(li.id));
   li.remove(); //해당 html요소를 지워버린다!
+  saveToDos(); //array에서도 지웠고, html에서도 지웠으니, localStorage에도 지운 내용을 갱신해준다.
 }
 
 function paintToDo(newTodoObj) {
