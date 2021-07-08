@@ -1,4 +1,15 @@
+body {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-size: cover;
+  background-position: center;
+}
+
 /*어떤 요소는 이 클래스를 박아넣으면 숨겨지게 된다.*/
 .hidden {
-    display: none;
+  display: none;
 }
