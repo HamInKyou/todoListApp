@@ -18,10 +18,11 @@ function deleteToDo(event) {
   li.remove(); //해당 html요소를 지워버린다!
 }
 
-function paintToDo(newTodo) {
+function paintToDo(newTodoObj) {
   const li = document.createElement("li");
+  li.id = newTodoObj.id; //리스트에 id를 부여! (각 toDo에 Unique한)
   const span = document.createElement("span");
-  span.innerText = newTodo; //생성된 span태그 안에 인자로 받아온 toDo집어넣기
+  span.innerText = newTodoObj.text; //생성된 span태그 안에 인자로 받아온 todoObj의 text 집어넣기
 
   const button = document.createElement("button");
   button.innerText = "❌"; //생성된 button 태그 안에 글자 집어넣기
@@ -39,8 +40,13 @@ function handleToDoSubmit(event) {
   const newTodo = toDoInput.value;
   toDoInput.value = "";
 
-  toDos.push(newTodo); //toDos 배열 끝에 새로운 todo를 추가하자.
-  paintToDo(newTodo); //저장한 toDo 화면에 그려주기
+  //localStorage에 저장되는 toDo를 단순 텍스트가 아닌, 아이디를 포함한 객체가 되도록 만들기
+  const newTodoObj = {
+    text: newTodo,
+    id: Date.now(),
+  };
+  toDos.push(newTodoObj); //toDos 배열 끝에 새로운 todo를 추가하자.
+  paintToDo(newTodoObj); //저장한 toDo 화면에 그려주기
   saveToDos();
 }
 
