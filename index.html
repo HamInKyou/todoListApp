@@ -11,6 +11,8 @@
     <title>Todo List App</title>
   </head>
   <body>
+    <div id="backgroundCover"></div>
+    <h2 id="clock">00:00:00</h2>
     <form id="login-form" class="hidden">
       <!-- input 태그에 유효성 검사를 걸어놔도 그냥 걸어놓으면 먹히지 않음. -->
       <!-- form 태그로 감싸놔야지 input에 걸어놓은 유효성 검사가 걸림! -->
@@ -23,7 +25,7 @@
       <button>로그인</button>
     </form>
     <h1 id="greeting" class="hidden"></h1>
-    <h2 id="clock">00:00:00</h2>
+
     <form id="todo-form">
       <input
         type="text"
@@ -32,8 +34,8 @@
       />
     </form>
     <ul id="todo-list"></ul>
-    <div id="quote"><span></span><span></span></div>
-    <div id="weather"><span></span><span></span></div>
+    <div id="quote"><span></span><br /><span></span></div>
+    <div id="weather"><span></span><br /><span></span></div>
 
     <script src="js/greetings.js"></script>
     <script src="js/clock.js"></script>

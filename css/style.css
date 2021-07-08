@@ -9,7 +9,47 @@ body {
   background-position: center;
 }
 
+#backgroundCover {
+  position: absolute;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 30%);
+}
+
 /*어떤 요소는 이 클래스를 박아넣으면 숨겨지게 된다.*/
 .hidden {
   display: none;
+}
+
+#clock {
+  color: #ffffff;
+  font-size: 150px;
+  font-weight: bold;
+}
+
+#quote {
+  position: absolute;
+  bottom: 15px;
+
+  color: #ffffff;
+  text-align: center;
+  line-height: 1.2;
+}
+
+#quote span:first-child {
+  font-size: 18px;
+}
+
+#weather {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  color: #ffffff;
+  text-align: end;
+  line-height: 1.2;
+}
+
+#weather span:first-child {
+  font-size: 20px;
 }
