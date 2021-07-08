@@ -3,6 +3,7 @@ const toDoInput = toDoForm.querySelector("input");
 const toDoList = document.querySelector("#todo-list");
 
 const TODOS_KEY = "toDos";
+const TODO_BOX = "todoBox";
 let toDos = [];
 
 function saveToDos() {
@@ -26,6 +27,7 @@ function deleteToDo(event) {
 function paintToDo(newTodoObj) {
   const li = document.createElement("li");
   li.id = newTodoObj.id; //리스트에 id를 부여! (각 toDo에 Unique한)
+  li.className = TODO_BOX;
   const span = document.createElement("span");
   span.innerText = newTodoObj.text; //생성된 span태그 안에 인자로 받아온 todoObj의 text 집어넣기
 
